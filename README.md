@@ -123,16 +123,21 @@ docker run --network <nome-da-rede> --name <nome> ...
 **O que voce precisa fazer:**
 
 1. Pare todos os containers que estao rodando
-2. Crie um arquivo `docker-compose.yml` na **raiz do projeto** (fora das pastas frontend/backend)
-3. Defina 3 servicos:
-   - `db` - PostgreSQL (use a imagem diretamente, sem Dockerfile)
+2. Crie um arquivo `.env` na **raiz do projeto** com as variaveis de configuracao:
+   - Usuario, senha e nome do banco de dados
+   - URL da API para o frontend
+3. Crie um arquivo `docker-compose.yml` na **raiz do projeto** (fora das pastas frontend/backend)
+4. Defina 3 servicos:
+   - `postgres` - PostgreSQL (use a imagem diretamente, sem Dockerfile)
    - `backend` - Build a partir da pasta `./backend`
    - `frontend` - Build a partir da pasta `./frontend`
-4. Configure:
-   - As variaveis de ambiente de cada servico
+5. Configure:
+   - Use `${VARIAVEL}` no docker-compose para puxar os valores do `.env`
    - As portas expostas
    - Use `depends_on` para definir a ordem de inicializacao
    - **Bonus:** Use um `volume` para persistir os dados do banco
+
+**Dica:** O Docker Compose le automaticamente o arquivo `.env` que estiver na mesma pasta do `docker-compose.yml`. Voce pode usar `${NOME_DA_VARIAVEL}` dentro do YAML para referenciar os valores.
 
 **Como saber se deu certo:**
 - Rode `docker compose up --build` e todos os 3 servicos devem subir
