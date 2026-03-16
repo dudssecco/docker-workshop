@@ -12,7 +12,7 @@ O desafio tem **4 etapas**. Tente completar todas em 2 horas!
 ```
 Workshop/
 ├── frontend/    <-- App React (porta 3000)
-├── backend/     <-- API Express (porta 3001)
+├── backend/     <-- API Express (porta 8000)
 └── README.md    <-- Voce esta aqui
 ```
 
@@ -20,7 +20,7 @@ Workshop/
 
 | Variavel de ambiente | Descricao             | Valor padrao |
 | -------------------- | --------------------- | ------------ |
-| `PORT`               | Porta do servidor     | `3001`       |
+| `PORT`               | Porta do servidor     | `8000`       |
 | `DB_HOST`            | Host do PostgreSQL    | `localhost`  |
 | `DB_PORT`            | Porta do PostgreSQL   | `5432`       |
 | `DB_USER`            | Usuario do banco      | `postgres`   |
@@ -31,7 +31,7 @@ Workshop/
 
 | Variavel de ambiente  | Descricao          | Valor padrao            |
 | --------------------- | ------------------ | ----------------------- |
-| `REACT_APP_API_URL`   | URL da API backend | `http://localhost:3001` |
+| `REACT_APP_API_URL`   | URL da API backend | `http://localhost:8000` |
 
 ---
 
@@ -47,13 +47,13 @@ Workshop/
    - Definir o diretorio de trabalho como `/app`
    - Copiar os arquivos de dependencias e instalar com `npm install`
    - Copiar o restante do codigo
-   - Expor a porta `3001`
+   - Expor a porta `8000`
    - Definir o comando para iniciar: `npm start`
 3. Faca o build da imagem com `docker build`
 4. Rode o container com `docker run`
 
 **Como saber se deu certo:**
-- No terminal, voce deve ver: `Backend rodando na porta 3001`
+- No terminal, voce deve ver: `Backend rodando na porta 8000`
 - O backend vai tentar conectar no banco e falhar - **isso eh esperado!** Vamos resolver na proxima etapa.
 
 **Comandos uteis:**
@@ -80,10 +80,10 @@ docker run -p <porta-host>:<porta-container> <nome-da-imagem>
 
 **Como saber se deu certo:**
 - O backend deve logar: `Banco de dados conectado e tabela criada!`
-- Acesse `http://localhost:3001/health` e veja `{"status":"ok"}`
+- Acesse `http://localhost:8000/health` e veja `{"status":"ok"}`
 - Teste criar uma tarefa:
   ```bash
-  curl -X POST http://localhost:3001/tasks \
+  curl -X POST http://localhost:8000/tasks \
     -H "Content-Type: application/json" \
     -d '{"title": "Minha primeira tarefa"}'
   ```
@@ -158,8 +158,6 @@ docker compose logs -f
 
 ## Bonus
 
-Terminou tudo? Tente esses desafios extras:
+Terminou tudo? Tente esse desafio extra:
 
-- Adicione um **nginx** como reverse proxy na frente do frontend
-- Faca o frontend usar um build de producao (`npm run build`) servido por nginx
 - Adicione um **healthcheck** no docker-compose para o banco de dados

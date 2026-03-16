@@ -3,7 +3,7 @@ const cors = require("cors");
 const { Pool } = require("pg");
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 8000;
 
 const pool = new Pool({
   host: process.env.DB_HOST || "localhost",
