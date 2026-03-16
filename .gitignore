@@ -1,0 +1,8 @@
+node_modules/
+build/
+.env
+npm-debug.log
+.DS_Store
+
+# Gabarito - nao enviar para os alunos
+gabarito/
