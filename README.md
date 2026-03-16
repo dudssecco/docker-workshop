@@ -25,7 +25,7 @@ Workshop/
 | `DB_PORT`            | Porta do PostgreSQL   | `5432`       |
 | `DB_USER`            | Usuario do banco      | `postgres`   |
 | `DB_PASSWORD`        | Senha do banco        | `postgres`   |
-| `DB_NAME`            | Nome do banco de dados| `tododb`     |
+| `DB_NAME`            | Nome do banco de dados| `postgres`   |
 
 ### O que o frontend espera:
 
