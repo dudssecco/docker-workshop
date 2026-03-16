@@ -1,6 +1,6 @@
 # Desafio Docker - Lista de Tarefas
 
-Voce recebeu um projeto com **frontend** (React) e **backend** (Node.js + Express) prontos.
+Voce recebeu um projeto com **frontend** (Next.js) e **backend** (Node.js + Express) prontos.
 Seu objetivo eh usar Docker para colocar tudo para rodar: backend, frontend e banco de dados PostgreSQL.
 
 O desafio tem **4 etapas**. Tente completar todas em 2 horas!
@@ -11,7 +11,7 @@ O desafio tem **4 etapas**. Tente completar todas em 2 horas!
 
 ```
 Workshop/
-├── frontend/    <-- App React (porta 3000)
+├── frontend/    <-- App Next.js (porta 3000)
 ├── backend/     <-- API Express (porta 8000)
 └── README.md    <-- Voce esta aqui
 ```
@@ -31,7 +31,7 @@ Workshop/
 
 | Variavel de ambiente  | Descricao          | Valor padrao            |
 | --------------------- | ------------------ | ----------------------- |
-| `REACT_APP_API_URL`   | URL da API backend | `http://localhost:8000` |
+| `NEXT_PUBLIC_API_URL` | URL da API backend | `http://localhost:8000` |
 
 ---
 
@@ -105,9 +105,9 @@ docker run --network <nome-da-rede> --name <nome> ...
 1. Crie um arquivo chamado `Dockerfile` dentro da pasta `frontend/`
 2. O Dockerfile eh muito parecido com o do backend, mas:
    - A porta exposta eh `3000`
-   - O comando de iniciar tambem eh `npm start`
+   - O comando de iniciar eh `npm run dev`
 3. Faca o build e rode o container
-   - Passe a variavel de ambiente `REACT_APP_API_URL` apontando para o backend
+   - Passe a variavel de ambiente `NEXT_PUBLIC_API_URL` apontando para o backend
 
 **Como saber se deu certo:**
 - Acesse `http://localhost:3000` no navegador
